@@ -1,0 +1,1001 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    MENOR_QUE
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> program declaration
+Rule 2     program -> declaration
+Rule 3     function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+Rule 4     function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+Rule 5     iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+Rule 6     expressionop -> expression MAS expression
+Rule 7     expressionop -> expression MENOS expression
+Rule 8     expressionop -> expression MAYOR_QUE expression
+Rule 9     conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+Rule 10    print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+Rule 11    declaration -> variable_declaration
+Rule 12    declaration -> function_declaration
+Rule 13    declaration -> iterate_statement
+Rule 14    declaration -> print_statement
+Rule 15    declaration -> conditional_statement
+Rule 16    declaration -> call_function
+Rule 17    declaration -> expressionop
+Rule 18    declaration -> expressionop PUNTO_Y_COMA
+Rule 19    call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA
+Rule 20    variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+Rule 21    expression -> NUMERO
+Rule 22    expression -> ID
+
+Terminals, with rules where they appear
+
+ASIGNACION           : 20
+CORRER               : 4
+FUNCION              : 3 4
+ID                   : 3 4 19 20 22
+IMPRIMIR             : 10
+ITERAR               : 5
+LLAVE_DERECHA        : 3 4 9
+LLAVE_IZQUIERDA      : 3 4 9
+MAS                  : 6
+MAYOR_QUE            : 8 9
+MENOR_QUE            : 
+MENOS                : 7
+NUMERO               : 5 21
+OPERADOR_FLUJO       : 3 4 5 19
+PARENTESIS_DERECHO   : 10
+PARENTESIS_IZQUIERDO : 10
+PUNTO_Y_COMA         : 10 18 19 20
+REALIZA              : 9
+SI                   : 9
+VARIABLE             : 20
+VECES                : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+call_function        : 16
+conditional_statement : 15
+declaration          : 1 2 9
+expression           : 6 6 7 7 8 8 9 9 10 20
+expressionop         : 5 17 18
+function_declaration : 12
+iterate_statement    : 13
+print_statement      : 14
+program              : 1 3 4 0
+variable_declaration : 11
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . program declaration
+    (2) program -> . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    program                        shift and go to state 1
+    declaration                    shift and go to state 2
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 1
+
+    (0) S' -> program .
+    (1) program -> program . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    declaration                    shift and go to state 19
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 2
+
+    (2) program -> declaration .
+
+    VARIABLE        reduce using rule 2 (program -> declaration .)
+    FUNCION         reduce using rule 2 (program -> declaration .)
+    ITERAR          reduce using rule 2 (program -> declaration .)
+    IMPRIMIR        reduce using rule 2 (program -> declaration .)
+    SI              reduce using rule 2 (program -> declaration .)
+    OPERADOR_FLUJO  reduce using rule 2 (program -> declaration .)
+    NUMERO          reduce using rule 2 (program -> declaration .)
+    ID              reduce using rule 2 (program -> declaration .)
+    $end            reduce using rule 2 (program -> declaration .)
+    LLAVE_DERECHA   reduce using rule 2 (program -> declaration .)
+
+
+state 3
+
+    (11) declaration -> variable_declaration .
+
+    VARIABLE        reduce using rule 11 (declaration -> variable_declaration .)
+    FUNCION         reduce using rule 11 (declaration -> variable_declaration .)
+    ITERAR          reduce using rule 11 (declaration -> variable_declaration .)
+    IMPRIMIR        reduce using rule 11 (declaration -> variable_declaration .)
+    SI              reduce using rule 11 (declaration -> variable_declaration .)
+    OPERADOR_FLUJO  reduce using rule 11 (declaration -> variable_declaration .)
+    NUMERO          reduce using rule 11 (declaration -> variable_declaration .)
+    ID              reduce using rule 11 (declaration -> variable_declaration .)
+    $end            reduce using rule 11 (declaration -> variable_declaration .)
+    LLAVE_DERECHA   reduce using rule 11 (declaration -> variable_declaration .)
+
+
+state 4
+
+    (12) declaration -> function_declaration .
+
+    VARIABLE        reduce using rule 12 (declaration -> function_declaration .)
+    FUNCION         reduce using rule 12 (declaration -> function_declaration .)
+    ITERAR          reduce using rule 12 (declaration -> function_declaration .)
+    IMPRIMIR        reduce using rule 12 (declaration -> function_declaration .)
+    SI              reduce using rule 12 (declaration -> function_declaration .)
+    OPERADOR_FLUJO  reduce using rule 12 (declaration -> function_declaration .)
+    NUMERO          reduce using rule 12 (declaration -> function_declaration .)
+    ID              reduce using rule 12 (declaration -> function_declaration .)
+    $end            reduce using rule 12 (declaration -> function_declaration .)
+    LLAVE_DERECHA   reduce using rule 12 (declaration -> function_declaration .)
+
+
+state 5
+
+    (13) declaration -> iterate_statement .
+
+    VARIABLE        reduce using rule 13 (declaration -> iterate_statement .)
+    FUNCION         reduce using rule 13 (declaration -> iterate_statement .)
+    ITERAR          reduce using rule 13 (declaration -> iterate_statement .)
+    IMPRIMIR        reduce using rule 13 (declaration -> iterate_statement .)
+    SI              reduce using rule 13 (declaration -> iterate_statement .)
+    OPERADOR_FLUJO  reduce using rule 13 (declaration -> iterate_statement .)
+    NUMERO          reduce using rule 13 (declaration -> iterate_statement .)
+    ID              reduce using rule 13 (declaration -> iterate_statement .)
+    $end            reduce using rule 13 (declaration -> iterate_statement .)
+    LLAVE_DERECHA   reduce using rule 13 (declaration -> iterate_statement .)
+
+
+state 6
+
+    (14) declaration -> print_statement .
+
+    VARIABLE        reduce using rule 14 (declaration -> print_statement .)
+    FUNCION         reduce using rule 14 (declaration -> print_statement .)
+    ITERAR          reduce using rule 14 (declaration -> print_statement .)
+    IMPRIMIR        reduce using rule 14 (declaration -> print_statement .)
+    SI              reduce using rule 14 (declaration -> print_statement .)
+    OPERADOR_FLUJO  reduce using rule 14 (declaration -> print_statement .)
+    NUMERO          reduce using rule 14 (declaration -> print_statement .)
+    ID              reduce using rule 14 (declaration -> print_statement .)
+    $end            reduce using rule 14 (declaration -> print_statement .)
+    LLAVE_DERECHA   reduce using rule 14 (declaration -> print_statement .)
+
+
+state 7
+
+    (15) declaration -> conditional_statement .
+
+    VARIABLE        reduce using rule 15 (declaration -> conditional_statement .)
+    FUNCION         reduce using rule 15 (declaration -> conditional_statement .)
+    ITERAR          reduce using rule 15 (declaration -> conditional_statement .)
+    IMPRIMIR        reduce using rule 15 (declaration -> conditional_statement .)
+    SI              reduce using rule 15 (declaration -> conditional_statement .)
+    OPERADOR_FLUJO  reduce using rule 15 (declaration -> conditional_statement .)
+    NUMERO          reduce using rule 15 (declaration -> conditional_statement .)
+    ID              reduce using rule 15 (declaration -> conditional_statement .)
+    $end            reduce using rule 15 (declaration -> conditional_statement .)
+    LLAVE_DERECHA   reduce using rule 15 (declaration -> conditional_statement .)
+
+
+state 8
+
+    (16) declaration -> call_function .
+
+    VARIABLE        reduce using rule 16 (declaration -> call_function .)
+    FUNCION         reduce using rule 16 (declaration -> call_function .)
+    ITERAR          reduce using rule 16 (declaration -> call_function .)
+    IMPRIMIR        reduce using rule 16 (declaration -> call_function .)
+    SI              reduce using rule 16 (declaration -> call_function .)
+    OPERADOR_FLUJO  reduce using rule 16 (declaration -> call_function .)
+    NUMERO          reduce using rule 16 (declaration -> call_function .)
+    ID              reduce using rule 16 (declaration -> call_function .)
+    $end            reduce using rule 16 (declaration -> call_function .)
+    LLAVE_DERECHA   reduce using rule 16 (declaration -> call_function .)
+
+
+state 9
+
+    (17) declaration -> expressionop .
+    (18) declaration -> expressionop . PUNTO_Y_COMA
+
+    VARIABLE        reduce using rule 17 (declaration -> expressionop .)
+    FUNCION         reduce using rule 17 (declaration -> expressionop .)
+    ITERAR          reduce using rule 17 (declaration -> expressionop .)
+    IMPRIMIR        reduce using rule 17 (declaration -> expressionop .)
+    SI              reduce using rule 17 (declaration -> expressionop .)
+    OPERADOR_FLUJO  reduce using rule 17 (declaration -> expressionop .)
+    NUMERO          reduce using rule 17 (declaration -> expressionop .)
+    ID              reduce using rule 17 (declaration -> expressionop .)
+    $end            reduce using rule 17 (declaration -> expressionop .)
+    LLAVE_DERECHA   reduce using rule 17 (declaration -> expressionop .)
+    PUNTO_Y_COMA    shift and go to state 20
+
+
+state 10
+
+    (20) variable_declaration -> VARIABLE . ID ASIGNACION expression PUNTO_Y_COMA
+
+    ID              shift and go to state 21
+
+
+state 11
+
+    (22) expression -> ID .
+
+    MAS             reduce using rule 22 (expression -> ID .)
+    MENOS           reduce using rule 22 (expression -> ID .)
+    MAYOR_QUE       reduce using rule 22 (expression -> ID .)
+    PUNTO_Y_COMA    reduce using rule 22 (expression -> ID .)
+    VARIABLE        reduce using rule 22 (expression -> ID .)
+    FUNCION         reduce using rule 22 (expression -> ID .)
+    ITERAR          reduce using rule 22 (expression -> ID .)
+    IMPRIMIR        reduce using rule 22 (expression -> ID .)
+    SI              reduce using rule 22 (expression -> ID .)
+    OPERADOR_FLUJO  reduce using rule 22 (expression -> ID .)
+    NUMERO          reduce using rule 22 (expression -> ID .)
+    ID              reduce using rule 22 (expression -> ID .)
+    $end            reduce using rule 22 (expression -> ID .)
+    LLAVE_DERECHA   reduce using rule 22 (expression -> ID .)
+    PARENTESIS_DERECHO reduce using rule 22 (expression -> ID .)
+    REALIZA         reduce using rule 22 (expression -> ID .)
+
+
+state 12
+
+    (6) expressionop -> expression . MAS expression
+    (7) expressionop -> expression . MENOS expression
+    (8) expressionop -> expression . MAYOR_QUE expression
+
+    MAS             shift and go to state 22
+    MENOS           shift and go to state 23
+    MAYOR_QUE       shift and go to state 24
+
+
+state 13
+
+    (3) function_declaration -> FUNCION . ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> FUNCION . ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+
+    ID              shift and go to state 25
+
+
+state 14
+
+    (19) call_function -> OPERADOR_FLUJO . ID PUNTO_Y_COMA
+
+    ID              shift and go to state 26
+
+
+state 15
+
+    (5) iterate_statement -> ITERAR . NUMERO VECES OPERADOR_FLUJO expressionop
+
+    NUMERO          shift and go to state 27
+
+
+state 16
+
+    (21) expression -> NUMERO .
+
+    MAS             reduce using rule 21 (expression -> NUMERO .)
+    MENOS           reduce using rule 21 (expression -> NUMERO .)
+    MAYOR_QUE       reduce using rule 21 (expression -> NUMERO .)
+    PUNTO_Y_COMA    reduce using rule 21 (expression -> NUMERO .)
+    VARIABLE        reduce using rule 21 (expression -> NUMERO .)
+    FUNCION         reduce using rule 21 (expression -> NUMERO .)
+    ITERAR          reduce using rule 21 (expression -> NUMERO .)
+    IMPRIMIR        reduce using rule 21 (expression -> NUMERO .)
+    SI              reduce using rule 21 (expression -> NUMERO .)
+    OPERADOR_FLUJO  reduce using rule 21 (expression -> NUMERO .)
+    NUMERO          reduce using rule 21 (expression -> NUMERO .)
+    ID              reduce using rule 21 (expression -> NUMERO .)
+    $end            reduce using rule 21 (expression -> NUMERO .)
+    LLAVE_DERECHA   reduce using rule 21 (expression -> NUMERO .)
+    PARENTESIS_DERECHO reduce using rule 21 (expression -> NUMERO .)
+    REALIZA         reduce using rule 21 (expression -> NUMERO .)
+
+
+state 17
+
+    (10) print_statement -> IMPRIMIR . PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+
+    PARENTESIS_IZQUIERDO shift and go to state 28
+
+
+state 18
+
+    (9) conditional_statement -> SI . expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 29
+
+state 19
+
+    (1) program -> program declaration .
+
+    VARIABLE        reduce using rule 1 (program -> program declaration .)
+    FUNCION         reduce using rule 1 (program -> program declaration .)
+    ITERAR          reduce using rule 1 (program -> program declaration .)
+    IMPRIMIR        reduce using rule 1 (program -> program declaration .)
+    SI              reduce using rule 1 (program -> program declaration .)
+    OPERADOR_FLUJO  reduce using rule 1 (program -> program declaration .)
+    NUMERO          reduce using rule 1 (program -> program declaration .)
+    ID              reduce using rule 1 (program -> program declaration .)
+    $end            reduce using rule 1 (program -> program declaration .)
+    LLAVE_DERECHA   reduce using rule 1 (program -> program declaration .)
+
+
+state 20
+
+    (18) declaration -> expressionop PUNTO_Y_COMA .
+
+    VARIABLE        reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    FUNCION         reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    ITERAR          reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    IMPRIMIR        reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    SI              reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    OPERADOR_FLUJO  reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    NUMERO          reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    ID              reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    $end            reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+    LLAVE_DERECHA   reduce using rule 18 (declaration -> expressionop PUNTO_Y_COMA .)
+
+
+state 21
+
+    (20) variable_declaration -> VARIABLE ID . ASIGNACION expression PUNTO_Y_COMA
+
+    ASIGNACION      shift and go to state 30
+
+
+state 22
+
+    (6) expressionop -> expression MAS . expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 31
+
+state 23
+
+    (7) expressionop -> expression MENOS . expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 32
+
+state 24
+
+    (8) expressionop -> expression MAYOR_QUE . expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 33
+
+state 25
+
+    (3) function_declaration -> FUNCION ID . OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> FUNCION ID . CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+
+    OPERADOR_FLUJO  shift and go to state 34
+    CORRER          shift and go to state 35
+
+
+state 26
+
+    (19) call_function -> OPERADOR_FLUJO ID . PUNTO_Y_COMA
+
+    PUNTO_Y_COMA    shift and go to state 36
+
+
+state 27
+
+    (5) iterate_statement -> ITERAR NUMERO . VECES OPERADOR_FLUJO expressionop
+
+    VECES           shift and go to state 37
+
+
+state 28
+
+    (10) print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO . expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 38
+
+state 29
+
+    (9) conditional_statement -> SI expression . MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+
+    MAYOR_QUE       shift and go to state 39
+
+
+state 30
+
+    (20) variable_declaration -> VARIABLE ID ASIGNACION . expression PUNTO_Y_COMA
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 40
+
+state 31
+
+    (6) expressionop -> expression MAS expression .
+
+    PUNTO_Y_COMA    reduce using rule 6 (expressionop -> expression MAS expression .)
+    VARIABLE        reduce using rule 6 (expressionop -> expression MAS expression .)
+    FUNCION         reduce using rule 6 (expressionop -> expression MAS expression .)
+    ITERAR          reduce using rule 6 (expressionop -> expression MAS expression .)
+    IMPRIMIR        reduce using rule 6 (expressionop -> expression MAS expression .)
+    SI              reduce using rule 6 (expressionop -> expression MAS expression .)
+    OPERADOR_FLUJO  reduce using rule 6 (expressionop -> expression MAS expression .)
+    NUMERO          reduce using rule 6 (expressionop -> expression MAS expression .)
+    ID              reduce using rule 6 (expressionop -> expression MAS expression .)
+    $end            reduce using rule 6 (expressionop -> expression MAS expression .)
+    LLAVE_DERECHA   reduce using rule 6 (expressionop -> expression MAS expression .)
+
+
+state 32
+
+    (7) expressionop -> expression MENOS expression .
+
+    PUNTO_Y_COMA    reduce using rule 7 (expressionop -> expression MENOS expression .)
+    VARIABLE        reduce using rule 7 (expressionop -> expression MENOS expression .)
+    FUNCION         reduce using rule 7 (expressionop -> expression MENOS expression .)
+    ITERAR          reduce using rule 7 (expressionop -> expression MENOS expression .)
+    IMPRIMIR        reduce using rule 7 (expressionop -> expression MENOS expression .)
+    SI              reduce using rule 7 (expressionop -> expression MENOS expression .)
+    OPERADOR_FLUJO  reduce using rule 7 (expressionop -> expression MENOS expression .)
+    NUMERO          reduce using rule 7 (expressionop -> expression MENOS expression .)
+    ID              reduce using rule 7 (expressionop -> expression MENOS expression .)
+    $end            reduce using rule 7 (expressionop -> expression MENOS expression .)
+    LLAVE_DERECHA   reduce using rule 7 (expressionop -> expression MENOS expression .)
+
+
+state 33
+
+    (8) expressionop -> expression MAYOR_QUE expression .
+
+    PUNTO_Y_COMA    reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    VARIABLE        reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    FUNCION         reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    ITERAR          reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    IMPRIMIR        reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    SI              reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    OPERADOR_FLUJO  reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    NUMERO          reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    ID              reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    $end            reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+    LLAVE_DERECHA   reduce using rule 8 (expressionop -> expression MAYOR_QUE expression .)
+
+
+state 34
+
+    (3) function_declaration -> FUNCION ID OPERADOR_FLUJO . LLAVE_IZQUIERDA program LLAVE_DERECHA
+
+    LLAVE_IZQUIERDA shift and go to state 41
+
+
+state 35
+
+    (4) function_declaration -> FUNCION ID CORRER . OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+
+    OPERADOR_FLUJO  shift and go to state 42
+
+
+state 36
+
+    (19) call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .
+
+    VARIABLE        reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    FUNCION         reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    ITERAR          reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    IMPRIMIR        reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    SI              reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    OPERADOR_FLUJO  reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    NUMERO          reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    ID              reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    $end            reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+    LLAVE_DERECHA   reduce using rule 19 (call_function -> OPERADOR_FLUJO ID PUNTO_Y_COMA .)
+
+
+state 37
+
+    (5) iterate_statement -> ITERAR NUMERO VECES . OPERADOR_FLUJO expressionop
+
+    OPERADOR_FLUJO  shift and go to state 43
+
+
+state 38
+
+    (10) print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression . PARENTESIS_DERECHO PUNTO_Y_COMA
+
+    PARENTESIS_DERECHO shift and go to state 44
+
+
+state 39
+
+    (9) conditional_statement -> SI expression MAYOR_QUE . expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 45
+
+state 40
+
+    (20) variable_declaration -> VARIABLE ID ASIGNACION expression . PUNTO_Y_COMA
+
+    PUNTO_Y_COMA    shift and go to state 46
+
+
+state 41
+
+    (3) function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA . program LLAVE_DERECHA
+    (1) program -> . program declaration
+    (2) program -> . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    program                        shift and go to state 47
+    declaration                    shift and go to state 2
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 42
+
+    (4) function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO . LLAVE_IZQUIERDA program LLAVE_DERECHA
+
+    LLAVE_IZQUIERDA shift and go to state 48
+
+
+state 43
+
+    (5) iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO . expressionop
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expressionop                   shift and go to state 49
+    expression                     shift and go to state 12
+
+state 44
+
+    (10) print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO . PUNTO_Y_COMA
+
+    PUNTO_Y_COMA    shift and go to state 50
+
+
+state 45
+
+    (9) conditional_statement -> SI expression MAYOR_QUE expression . REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+
+    REALIZA         shift and go to state 51
+
+
+state 46
+
+    (20) variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .
+
+    VARIABLE        reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    FUNCION         reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    ITERAR          reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    IMPRIMIR        reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    SI              reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    OPERADOR_FLUJO  reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    NUMERO          reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    ID              reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    $end            reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+    LLAVE_DERECHA   reduce using rule 20 (variable_declaration -> VARIABLE ID ASIGNACION expression PUNTO_Y_COMA .)
+
+
+state 47
+
+    (3) function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program . LLAVE_DERECHA
+    (1) program -> program . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    LLAVE_DERECHA   shift and go to state 52
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    declaration                    shift and go to state 19
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 48
+
+    (4) function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA . program LLAVE_DERECHA
+    (1) program -> . program declaration
+    (2) program -> . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    program                        shift and go to state 53
+    declaration                    shift and go to state 2
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 49
+
+    (5) iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .
+
+    VARIABLE        reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    FUNCION         reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    ITERAR          reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    IMPRIMIR        reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    SI              reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    OPERADOR_FLUJO  reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    NUMERO          reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    ID              reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    $end            reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+    LLAVE_DERECHA   reduce using rule 5 (iterate_statement -> ITERAR NUMERO VECES OPERADOR_FLUJO expressionop .)
+
+
+state 50
+
+    (10) print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .
+
+    VARIABLE        reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    FUNCION         reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    ITERAR          reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    IMPRIMIR        reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    SI              reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    OPERADOR_FLUJO  reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    NUMERO          reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    ID              reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    $end            reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+    LLAVE_DERECHA   reduce using rule 10 (print_statement -> IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA .)
+
+
+state 51
+
+    (9) conditional_statement -> SI expression MAYOR_QUE expression REALIZA . LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+
+    LLAVE_IZQUIERDA shift and go to state 54
+
+
+state 52
+
+    (3) function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .
+
+    VARIABLE        reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    FUNCION         reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    ITERAR          reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    IMPRIMIR        reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    SI              reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    OPERADOR_FLUJO  reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    NUMERO          reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    ID              reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    $end            reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    LLAVE_DERECHA   reduce using rule 3 (function_declaration -> FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+
+
+state 53
+
+    (4) function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program . LLAVE_DERECHA
+    (1) program -> program . declaration
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    LLAVE_DERECHA   shift and go to state 55
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    declaration                    shift and go to state 19
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+    expression                     shift and go to state 12
+
+state 54
+
+    (9) conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA . declaration LLAVE_DERECHA
+    (11) declaration -> . variable_declaration
+    (12) declaration -> . function_declaration
+    (13) declaration -> . iterate_statement
+    (14) declaration -> . print_statement
+    (15) declaration -> . conditional_statement
+    (16) declaration -> . call_function
+    (17) declaration -> . expressionop
+    (18) declaration -> . expressionop PUNTO_Y_COMA
+    (20) variable_declaration -> . VARIABLE ID ASIGNACION expression PUNTO_Y_COMA
+    (3) function_declaration -> . FUNCION ID OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (4) function_declaration -> . FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA
+    (5) iterate_statement -> . ITERAR NUMERO VECES OPERADOR_FLUJO expressionop
+    (10) print_statement -> . IMPRIMIR PARENTESIS_IZQUIERDO expression PARENTESIS_DERECHO PUNTO_Y_COMA
+    (9) conditional_statement -> . SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA
+    (19) call_function -> . OPERADOR_FLUJO ID PUNTO_Y_COMA
+    (6) expressionop -> . expression MAS expression
+    (7) expressionop -> . expression MENOS expression
+    (8) expressionop -> . expression MAYOR_QUE expression
+    (21) expression -> . NUMERO
+    (22) expression -> . ID
+
+    VARIABLE        shift and go to state 10
+    FUNCION         shift and go to state 13
+    ITERAR          shift and go to state 15
+    IMPRIMIR        shift and go to state 17
+    SI              shift and go to state 18
+    OPERADOR_FLUJO  shift and go to state 14
+    NUMERO          shift and go to state 16
+    ID              shift and go to state 11
+
+    expression                     shift and go to state 12
+    declaration                    shift and go to state 56
+    variable_declaration           shift and go to state 3
+    function_declaration           shift and go to state 4
+    iterate_statement              shift and go to state 5
+    print_statement                shift and go to state 6
+    conditional_statement          shift and go to state 7
+    call_function                  shift and go to state 8
+    expressionop                   shift and go to state 9
+
+state 55
+
+    (4) function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .
+
+    VARIABLE        reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    FUNCION         reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    ITERAR          reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    IMPRIMIR        reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    SI              reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    OPERADOR_FLUJO  reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    NUMERO          reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    ID              reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    $end            reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+    LLAVE_DERECHA   reduce using rule 4 (function_declaration -> FUNCION ID CORRER OPERADOR_FLUJO LLAVE_IZQUIERDA program LLAVE_DERECHA .)
+
+
+state 56
+
+    (9) conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration . LLAVE_DERECHA
+
+    LLAVE_DERECHA   shift and go to state 57
+
+
+state 57
+
+    (9) conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .
+
+    VARIABLE        reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    FUNCION         reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    ITERAR          reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    IMPRIMIR        reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    SI              reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    OPERADOR_FLUJO  reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    NUMERO          reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    ID              reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    $end            reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+    LLAVE_DERECHA   reduce using rule 9 (conditional_statement -> SI expression MAYOR_QUE expression REALIZA LLAVE_IZQUIERDA declaration LLAVE_DERECHA .)
+
